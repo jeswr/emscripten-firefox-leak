@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="context">Number of runs:</div>
+    <div id="result"></div>
+  </body>
+  <script src="/index.js"></script>
+  <script>
+    (async () => {
+      try {
+        for (let i = 0; true; i += 1) {
+          document.getElementById("result").innerHTML = i.toString();
+          await Promise.all(Array(5).fill(0).map(() => SWIPL({
+            print: () => {},
+            printErr: () => {}
+          })))
+        }
+      } catch (e) {
+        console.error('caught', e)
+      }
+    })()
+  </script>
+</html>
