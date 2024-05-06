@@ -10,10 +10,10 @@
       try {
         for (let i = 0; true; i += 1) {
           document.getElementById("result").innerHTML = i.toString();
-          await Promise.all(Array(5).fill(0).map(() => SWIPL({
+          await SWIPL({
             print: () => {},
             printErr: () => {}
-          })))
+          })
         }
       } catch (e) {
         console.error('caught', e)

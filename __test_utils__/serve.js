@@ -22,7 +22,7 @@ module.exports.createTestApp = function createTestApp() {
   
   app.get('/index.js', (_, res) => {
     res.setHeader('content-type', 'text/javascript');
-    fs.createReadStream(path.join(__dirname, '..', 'bundle', 'index.js')).pipe(res);
+    fs.createReadStream(path.join(__dirname, '..', 'a.out.js')).pipe(res);
   });
 
   return app;
